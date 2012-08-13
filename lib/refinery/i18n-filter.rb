@@ -9,8 +9,8 @@ module RoutingFilter
             ''
           end
           path.sub!(%r{^$}) { '/' }
-        #else
-          #::I18n.locale = ::Refinery::I18n.default_frontend_locale
+        elsif !::Refinery::I18n.frontend_locales.include?(::I18n.locale)
+          ::I18n.locale = ::Refinery::I18n.default_frontend_locale 
         end
       end
 
